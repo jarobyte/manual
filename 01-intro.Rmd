@@ -1,2 +1,51 @@
 # Methodology{#methodology}
 
+## Introduction
+
+In this chapter we present the methodology used to work with the data. We will explain each step individually and as part of the many subprocesses that are required to understand the databases present in datos.gob.mx.
+
+## General Model of the Methodology
+
+The purpose of this methodology is to turn the raw databases found in the portal into understanding, insight and knowledge. To accomplish this, there is a need for using a computing system, for we will be using the statistical software R, which is free and open source.  
+
+![](diagrams/data-science.png)
+
+### Individual Steps of the Methodology
+
+#### Import
+
+First you must import your data into R. This typically means that you take data stored in a file, database, or web API, and load it into a data frame in R. In this step is where you usually deal with encoding, language, and formats issues. 
+
+#### Tidy
+
+Once you’ve imported your data, it is a good idea to tidy it. Tidying your data means storing it in a consistent form that matches the semantics of the dataset with the way it is stored. In brief, when your data is tidy, each column is a variable, and each row is an observation. Tidy data is important because the consistent structure lets you focus your struggle on questions about the data, not fighting to get the data into the right form for different functions.
+
+#### Transformation
+
+Once you have tidy data, a common first step is to transform it. Transformation includes narrowing in on observations of interest (like all people in one city, or all data from the last year), creating new variables that are functions of existing variables (like computing velocity from speed and time), and calculating a set of summary statistics (like counts or means). Together, tidying and transforming are called wrangling, because getting your data in a form that’s natural to work with often feels like a fight!
+
+#### Visualisation and Modelling
+
+Once you have tidy data with the variables you need, there are two main engines of knowledge generation: visualisation and modelling. These have complementary strengths and weaknesses so any real analysis will iterate between them many times.
+
+Visualisation is a fundamentally human activity. A good visualisation will show you things that you did not expect, or raise new questions about the data. A good visualisation might also hint that you’re asking the wrong question, or you need to collect different data. Visualisations can surprise you, but don’t scale particularly well because they require a human to interpret them.
+
+Models are complementary tools to visualisation. Once you have made your questions sufficiently precise, you can use a model to answer them. Models are a fundamentally mathematical or computational tool, so they generally scale well. Even when they don’t, it’s usually cheaper to buy more computers than it is to buy more brains! But every model makes assumptions, and by its very nature a model cannot question its own assumptions. That means a model cannot fundamentally surprise you.
+
+#### Communication
+
+The last step of the methodology is communication, an absolutely critical part of any data analysis project. It doesn’t matter how well your models and visualisation have led you to understand the data unless you can also communicate your results to others.
+
+#### Programming
+
+Surrounding all these tools is programming. Programming is a cross-cutting tool that you use in every part of the project. You don’t need to be an expert programmer to be a data scientist, but learning more about programming pays off because becoming a better programmer allows you to automate common tasks, and solve new problems with greater ease.
+
+### Parts of the process
+
+To accomplish this methodology, we will divide the whole process into several pieces that we explain next. 
+
+#### Wrangling the Data
+
+![](diagrams/data-science-wrangle.png)
+
+The objective of the wrangling phase of the method is to resolve all the informatical issues around the database. As mentioned before, the final goal to achieve is to tidy all the databases involved. For this task, R (and more specifically, the tidyverse package) supplies mostly of the tool you will need in order to  
