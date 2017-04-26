@@ -14,4 +14,4 @@ description: "This manual describes the process of cleaning open government data
 
 # Overview
 
-The purpose of this document is to present a methodology that allows us to extract, import, tidy and transform open government data mainly found in datos.gob.mx.
+This manual describes through a methodology the activities of extraction, cleaning and integration of data bases prior to the processing and analysis phase. In addition to this manual and using a programming environment, automated scripts are developed for cleaning, integrating and transforming data.
