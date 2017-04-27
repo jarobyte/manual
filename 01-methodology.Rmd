@@ -48,4 +48,20 @@ To accomplish this methodology, we will divide the whole process into several pi
 
 ![](diagrams/data-science-wrangle.png)
 
-The objective of the wrangling phase of the method is to resolve all the informatical issues around the database. As mentioned before, the final goal to achieve is to tidy all the databases involved. For this task, R (and more specifically, the tidyverse package) supplies mostly of the tool you will need in order to  
+The objective of the wrangling phase of the method is to resolve all the informatical issues around the database. As mentioned before, the final goal to achieve is to tidy all the databases involved. For this task, R (and more specifically, the tidyverse package) supplies mostly of the tools you will need to get your data in a consistent form.
+
+#### Exploring the data
+
+![](diagrams/data-science-explore.png)
+
+When the data has already been tidied, the first step in the analysis is exploring the data. This means that you want to find as many relationships and irregularities as possible. For this, the main tools are visualisation and transformation which are generally applied in the following way:
+
+1. You generate questions about your data.
+2. Search for answers by visualising, transforming, and modelling your data.
+3. Use what you learn to refine your questions and/or generate new questions.
+
+#### Communicating
+
+![](diagrams/data-science-communicate.png)
+
+The final step in the methodology is to wrap up all the wrangling, exploration, and modelling in a single report. For this task is very useful recycle all the plots that you have already used to explore the data. As a technological tool, the R environment (in a very similar manner to the Python environment) allows us to put the plots, text and R code in a single document called Analysis Notebook.
