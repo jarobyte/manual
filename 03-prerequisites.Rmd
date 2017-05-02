@@ -1,0 +1,7 @@
+# Prerequistes
+
+In this chapter we will present 
+
+## Software
+
+## Tidy data

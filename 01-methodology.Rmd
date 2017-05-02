@@ -1,8 +1,8 @@
-# Methodology{#methodology}
+# The Methodology{#methodology}
 
 ## Introduction
 
-In this chapter we present the methodology used to work with the data. We will explain each step individually and as part of the many subprocesses that are required to understand the databases present in datos.gob.mx.
+In this chapter we present the methodology that we used to work with the data. We will explain each step individually and as part of the many subprocesses that are required to understand the databases present in datos.gob.mx.
 
 ## General Model of the Methodology
 

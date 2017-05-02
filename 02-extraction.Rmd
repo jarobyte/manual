@@ -1,3 +1,31 @@
-# Extraction
+# The Extraction Phase
 
-Here is a review of existing methods.
+## Introduction
+
+Even while the obtaining of the data is not part of the analysis methodology, we have to point out that it is no trivial matter to obtain data to begin working with. It is important to note also that this part of the process depends completely upon the structure and contents of the portal. There is no way to design a general method for obtaining data because each database is constructed and obtained in its own way. Even so, we will try to explain what have we done in this particular case(mexican open government data stored in datos.gob.mx) in order to clear the path for future investigations.
+
+## The CKAN system and its API
+
+The data portal datos.gob.mx is built upon the design and functionalities of the CKAN system. To better explain how to use the portal, we first present a brief overview of CKAN, the definition of API and how it is related to our problem.
+
+The first key concept is CKAN. Quoting from the CKAN website, "CKAN is a powerful data management system that makes data accessible – by providing tools to streamline publishing, sharing, finding and using data. CKAN is aimed at data publishers (national and regional governments, companies and organizations) wanting to make their data open and available".
+
+The second key topic is the concept of API. An Application Programming Interface (API) is a set of subroutine definitions, protocols, and tools for building application software. In general terms, it is a set of clearly defined methods of communication between various software components.
+
+Finally, we have to link these key ideas together: 
+
+The portal datos.gob.mx is an implementation of the CKAN system which is a platform to publish open data and make it accesible. CKAN has many tools in order to accomplish the accesibility of the data: it has a tag system, a query system, and a way of organizing the databases that makes it very easy to find the desired data. To make it possible for a program to access the site, CKAN has a set of functions (called API) which allows a program to make use of the all the functionality that the site has.
+
+## Keywords
+
+The first step to obtain data is to try to guess the tags that are associated to the database. This a heuristic task for which we present a useful resource: list all the tags available in the site. This is most useful when you already know how to use the site(for which we mean knowing how to use the CKAN API), but you can use this tip querying on the search bar of the site.
+
+## Identifying the source of the data
+
+After identifying 
+
+## Discriminate the irrelevant entries
+
+## Download
+
+## Checking the data
