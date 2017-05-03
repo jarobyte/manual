@@ -47,4 +47,10 @@ Having all these ideas at hand, we finally define tidy data:
 
 In a picture, this is what we call tidy data:
 
+`r knitr::include_graphics("images/tidy-1.png", dpi = NA)`
 `r knitr::include_graphics("images/tidy-1.png")`
+
+```{r}
+knitr::include_graphics("images/tidy-1.png")
+```
+

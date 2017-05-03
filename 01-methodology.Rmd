@@ -47,8 +47,14 @@ To accomplish this methodology, we will divide the whole process into several pi
 #### Wrangling the Data
 
 `r knitr::include_graphics("diagrams/data-science-wrangle.png")`
-```{r}
+
+```{r, echo=FALSE, out.width="50%"}
 knitr::include_graphics("diagrams/data-science-wrangle.png")
+
+```
+
+```{r}
+knitr::include_graphics("diagrams/data-science.png")
 ```
 
 The objective of the wrangling phase of the method is to resolve all the informatical issues around the database. As mentioned before, the final goal to achieve is to tidy all the databases involved. For this task, R (and more specifically, the tidyverse package) supplies mostly of the tools you will need to get your data in a consistent form.
