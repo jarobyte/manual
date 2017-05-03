@@ -42,6 +42,7 @@ As variables make the measurable aspects of something, we can speak of the "inst
 Having all these ideas at hand, we finally define tidy data: 
 
 * All the variables in the dataset have its own column.
+
 * All the observations of the variables have its own row.
 
 In a picture, this is what we call tidy data:
