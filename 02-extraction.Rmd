@@ -18,7 +18,7 @@ The portal datos.gob.mx is an implementation of the CKAN system which is a platf
 
 ## Keywords
 
-The first step to obtain data is to try to guess the tags that are associated to the database. This a heuristic task for which we present a useful resource: list all the tags available in the site. This is most useful when you already know how to use the site(for which we mean knowing how to use the CKAN API), but you can use this tip querying on the search bar of the site.
+The first step to obtain data is to try to guess the tags that are associated to the database. This a heuristic task for which we present a useful resource: list all the tags available in the site. This is most useful when you already know how to use the site (for which we mean knowing how to use the CKAN API), but you can use this tip querying on the search bar of the site.
 
 ## Identifying the source of the data
 
