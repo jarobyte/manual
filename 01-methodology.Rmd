@@ -8,7 +8,7 @@ In this chapter we present the methodology that we used to work with the data. W
 
 The purpose of this methodology is to turn the raw databases found in the portal into understanding, insight and knowledge. To accomplish this, there is a need for using a computing system, for we will be using the statistical software R, which is free and open source.  
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width=2}
 knitr::include_graphics("diagrams/data-science.png")
 ```
 
