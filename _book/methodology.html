@@ -51,43 +51,6 @@
 
 
 
-<style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -171,7 +134,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="general-model-of-the-methodology" class="section level2">
 <h2><span class="header-section-number">2.2</span> General Model of the Methodology</h2>
 <p>The purpose of this methodology is to turn the raw databases found in the portal into understanding, insight and knowledge. To accomplish this, there is a need for using a computing system, for we will be using the statistical software R, which is free and open source.</p>
-<p><img src="diagrams/data-science.png" width="517" /></p>
+<p><img src="diagrams/data-science.png" /><!-- --></p>
 <div id="individual-steps-of-the-methodology" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> Individual Steps of the Methodology</h3>
 <div id="import" class="section level4">
@@ -206,15 +169,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>To accomplish this methodology, we will divide the whole process into several pieces that we explain next.</p>
 <div id="wrangling-the-data" class="section level4">
 <h4><span class="header-section-number">2.2.2.1</span> Wrangling the Data</h4>
-<p><img src="diagrams/data-science-wrangle.png" width="517" /></p>
-<p><img src="diagrams/data-science-wrangle.png" width="50%" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">include_graphics</span>(<span class="st">&quot;diagrams/data-science.png&quot;</span>)</code></pre></div>
-<p><img src="diagrams/data-science.png" width="258" /></p>
+<p><img src="diagrams/data-science-wrangle.png" /><!-- --></p>
 <p>The objective of the wrangling phase of the method is to resolve all the informatical issues around the database. As mentioned before, the final goal to achieve is to tidy all the databases involved. For this task, R (and more specifically, the tidyverse package) supplies mostly of the tools you will need to get your data in a consistent form.</p>
 </div>
 <div id="exploring-the-data" class="section level4">
 <h4><span class="header-section-number">2.2.2.2</span> Exploring the data</h4>
-<p><img src="diagrams/data-science-explore.png" width="517" /></p>
+<p><img src="diagrams/data-science-explore.png" /><!-- --></p>
 <p>When the data has already been tidied, the first step in the analysis is exploring the data. This means that you want to find as many relationships and irregularities as possible. For this, the main tools are visualisation and transformation which are generally applied in the following way:</p>
 <ol style="list-style-type: decimal">
 <li>You generate questions about your data.</li>
@@ -224,7 +184,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="communicating" class="section level4">
 <h4><span class="header-section-number">2.2.2.3</span> Communicating</h4>
-<p><img src="diagrams/data-science-communicate.png" width="517" /></p>
+<p><img src="diagrams/data-science-communicate.png" /><!-- --></p>
 <p>The final step in the methodology is to wrap up all the wrangling, exploration, and modelling in a single report. For this task is very useful to recycle all the plots that you have already used to explore the data. As a technological tool, the R environment (in a very similar manner to the Python environment) allows us to put the plots, text and R code in a single document called Analysis Notebook.</p>
 
 </div>
