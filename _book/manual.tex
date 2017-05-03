@@ -31,6 +31,46 @@
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
 \bibliographystyle{apalike}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -206,11 +246,15 @@ several pieces that we explain next.
 
 \subsubsection{Wrangling the Data}\label{wrangling-the-data}
 
-\begin{figure}
-\centering
-\includegraphics{diagrams/data-science-wrangle.png}
-\caption{}
-\end{figure}
+\includegraphics[width=7.18in]{diagrams/data-science-wrangle}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr::}\KeywordTok{include_graphics}\NormalTok{(}\StringTok{"diagrams/data-science-wrangle.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=7.18in]{diagrams/data-science-wrangle}
 
 The objective of the wrangling phase of the method is to resolve all the
 informatical issues around the database. As mentioned before, the final
@@ -220,11 +264,7 @@ tools you will need to get your data in a consistent form.
 
 \subsubsection{Exploring the data}\label{exploring-the-data}
 
-\begin{figure}
-\centering
-\includegraphics{diagrams/data-science-explore.png}
-\caption{}
-\end{figure}
+\includegraphics[width=7.18in]{diagrams/data-science-explore}
 
 When the data has already been tidied, the first step in the analysis is
 exploring the data. This means that you want to find as many
@@ -247,16 +287,12 @@ following way:
 
 \subsubsection{Communicating}\label{communicating}
 
-\begin{figure}
-\centering
-\includegraphics{diagrams/data-science-communicate.png}
-\caption{}
-\end{figure}
+\includegraphics[width=7.18in]{diagrams/data-science-communicate}
 
 The final step in the methodology is to wrap up all the wrangling,
 exploration, and modelling in a single report. For this task is very
-useful recycle all the plots that you have already used to explore the
-data. As a technological tool, the R environment (in a very similar
+useful to recycle all the plots that you have already used to explore
+the data. As a technological tool, the R environment (in a very similar
 manner to the Python environment) allows us to put the plots, text and R
 code in a single document called Analysis Notebook.
 
@@ -440,11 +476,7 @@ Having all these ideas at hand, we finally define tidy data:
 
 In a picture, this is what we call tidy data:
 
-\begin{figure}
-\centering
-\includegraphics{images/tidy-1.png}
-\caption{}
-\end{figure}
+\includegraphics[width=26.67in]{images/tidy-1}
 
 \chapter{Applications}\label{applications}
 

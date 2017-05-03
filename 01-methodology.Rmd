@@ -8,10 +8,7 @@ In this chapter we present the methodology that we used to work with the data. W
 
 The purpose of this methodology is to turn the raw databases found in the portal into understanding, insight and knowledge. To accomplish this, there is a need for using a computing system, for we will be using the statistical software R, which is free and open source.  
 
-
 `r knitr::include_graphics("diagrams/data-science.png")`
-
-
 
 ### Individual Steps of the Methodology
 
@@ -49,13 +46,16 @@ To accomplish this methodology, we will divide the whole process into several pi
 
 #### Wrangling the Data
 
-![](diagrams/data-science-wrangle.png)
+`r knitr::include_graphics("diagrams/data-science-wrangle.png")`
+```{r}
+knitr::include_graphics("diagrams/data-science-wrangle.png")
+```
 
 The objective of the wrangling phase of the method is to resolve all the informatical issues around the database. As mentioned before, the final goal to achieve is to tidy all the databases involved. For this task, R (and more specifically, the tidyverse package) supplies mostly of the tools you will need to get your data in a consistent form.
 
 #### Exploring the data
 
-![](diagrams/data-science-explore.png)
+`r knitr::include_graphics("diagrams/data-science-explore.png")`
 
 When the data has already been tidied, the first step in the analysis is exploring the data. This means that you want to find as many relationships and irregularities as possible. For this, the main tools are visualisation and transformation which are generally applied in the following way:
 
@@ -65,6 +65,6 @@ When the data has already been tidied, the first step in the analysis is explori
 
 #### Communicating
 
-![](diagrams/data-science-communicate.png)
+`r knitr::include_graphics("diagrams/data-science-communicate.png")`
 
-The final step in the methodology is to wrap up all the wrangling, exploration, and modelling in a single report. For this task is very useful recycle all the plots that you have already used to explore the data. As a technological tool, the R environment (in a very similar manner to the Python environment) allows us to put the plots, text and R code in a single document called Analysis Notebook.
+The final step in the methodology is to wrap up all the wrangling, exploration, and modelling in a single report. For this task is very useful to recycle all the plots that you have already used to explore the data. As a technological tool, the R environment (in a very similar manner to the Python environment) allows us to put the plots, text and R code in a single document called Analysis Notebook.
