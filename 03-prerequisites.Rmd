@@ -1,7 +1,5 @@
 # Prerequisites
 
-## Introduction
-
 In this chapter we will present the preparation steps needed in order to be able to analyse a database of datos.gob.mx. The most important notion of this chapter is the concept of tidy data, which is a consistent form of arranging the data in a dataset that enables us to work more eficiently and stay focused analysing the data. 
 
 ## Software

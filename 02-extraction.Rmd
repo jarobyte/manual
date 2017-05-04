@@ -1,7 +1,5 @@
 # The Extraction Phase
 
-## Introduction
-
 Even while the obtaining of the data is not part of the analysis methodology, we have to point out that it is no trivial matter to obtain data to begin working with. It is important to note also that this part of the process depends completely upon the structure and contents of the portal. There is no way to design a general method for obtaining data because each database is constructed and obtained in its own way. Even so, we will try to explain what have we done in this particular case(mexican open government data stored in datos.gob.mx) in order to clear the path for future investigations.
 
 ## The CKAN system and its API
