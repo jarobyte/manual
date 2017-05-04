@@ -20,12 +20,41 @@ The portal datos.gob.mx is an implementation of the CKAN system which is a platf
 
 The first step to obtain data is to try to guess the tags that are associated to the database. This a heuristic task for which we present a useful resource: list all the tags available in the site. This is most useful when you already know how to use the site (for which we mean knowing how to use the CKAN API), but you can use this tip querying on the search bar of the site.
 
-## Identifying the source of the data
+Strictly speaking, it is actually difficult to list all the tags in the site without knowledge of the API. For this reason, we present a little help with the search.
 
-After identifying 
+<https://datos.gob.mx/busca/dataset?_tags_limit=0>
+
+In this link, we have already listed the all the databases available in the site and we have toggled on the option to list as many tags as possible. Unfortunately, not all the tags available appear in this webpage, but it is a good start to begin with.
+The tags appear on the left side of the site right after the "Etiquetas" heading, which stands for "Tags".
+
+`r knitr::include_graphics("screenshots/tags.png", dpi = NA)`
 
 ## Discriminate the irrelevant entries
 
+After listing all entries related to the query in the search bar, you have to take a look into the title of the resulting entries in order to know which of them are useful for your purposes. This is also a heuristic task because of the variety of ways in which related databases (or even the same database) can be registered. 
+
+To avoid confusion, the titles are in bold and in a slightly bigger font size than the normal text. We present a screenshot to help in the identification.
+
+`r knitr::include_graphics("screenshots/titles.png")`
+
+## Identifying the source of the data
+
+The next step in the extraction is the identification of the source of the data. This means getting to know the name of the government dependency that published the data. Ideally, this is very easy mostly thanks to the CKAN system, because it requires the publisher to supply as many metadata as possible. In the reality, the missing metadata makes it very hard to find the real source of the data. 
+
+This information is displayed at the left of the website after clicking in the entry title. As before, we present a screenshot to make it easier to find it.
+
+`r knitr::include_graphics("screenshots/source.png", dpi = NA)`
+
 ## Download
 
+After identifying the source of the data, you can finally download the database. We present a screenshot to point out the database link.
+
+`r knitr::include_graphics("screenshots/database.png")`
+
+After accessing the website of the database, you can click on the link named "url" to preview the database in your web browser. You can save the file to disk directly from your browser.
+
+`r knitr::include_graphics("screenshots/database1.png")`
+
 ## Checking the data
+
+As a final step in the extraction process, we recommend opening the file you have just downloaded with a plain text editor like Notepad, Gedit, etc. This will allow you to have a more concrete idea of the structure of the database as a preparation to the import process.
