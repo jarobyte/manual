@@ -4,22 +4,24 @@ To finalize this manual, we present two guided examples that we hope will help i
 
 ## Tuberculosis Database from World Health Organization
 
-```{r, setup}
+```{r setup, include=FALSE, echo=FALSE}
 library(tidyverse)
 ```
 
 
-To finish off the chapter, let's pull together everything you've learned to tackle a realistic data tidying problem. The `tidyr::who` dataset contains tuberculosis (TB) cases broken down by year, country, age, gender, and diagnosis method. The data comes from the *2014 World Health Organization Global Tuberculosis Report*, available at <http://www.who.int/tb/country/data/download/en/>.
+This dataset contains tuberculosis (TB) cases broken down by year, country, age, gender, and diagnosis method. The data comes from the *2014 World Health Organization Global Tuberculosis Report*, available at <http://www.who.int/tb/country/data/download/en/>.
 
-There's a wealth of epidemiological information in this dataset, but it's challenging to work with the data in the form that it's provided:
+This is a Case Study from the book "R for Data Science" by Hadley Wickham and Garret Grolemund which can be found in <http://r4ds.had.co.nz/tidy-data.html#case-study>. It has been modified and summarised to fit the context of this manual, but the main ideas around are the same.
+
+We are assuming that this dataset has already been imported and has no compatibility problems. Let's first take a look into the raw database in order to gain some insight.
 
 ```{r}
 who
 ```
 
-This is a very typical real-life example dataset. It contains redundant columns, odd variable codes, and many missing values. In short, `who` is messy, and we'll need multiple steps to tidy it. Like dplyr, tidyr is designed so that each function does one thing well. That means in real-life situations you'll usually need to string together multiple verbs into a pipeline. 
+This is a very typical real-life example dataset. It contains redundant columns, odd variable codes, and many missing values. In short, `who` is messy, and we'll need multiple steps to tidy it. 
 
-The best place to start is almost always to gather together the columns that are not variables. Let's have a look at what we've got: 
+The first step in our process is to try to guess which information is a variable and which is not. 
 
 * It looks like `country`, `iso2`, and `iso3` are three variables that 
   redundantly specify the country.
@@ -30,7 +32,7 @@ The best place to start is almost always to gather together the columns that are
   in the variable names (e.g. `new_sp_m014`, `new_ep_m014`, `new_ep_f014`) 
   these are likely to be values, not variables.
 
-So we need to gather together all the columns from `new_sp_m014` to `newrel_f65`. We don't know what those values represent yet, so we'll give them the generic name `"key"`. We know the cells represent the count of cases, so we'll use the variable `cases`. There are a lot of missing values in the current representation, so for now we'll use `na.rm` just so we can focus on the values that are present.
+So we need to gather together all the columns from `new_sp_m014` to `newrel_f65`. We don't know what those values represent yet, so we'll give them the generic name `"key"`. We know the cells represent the count of cases, so we'll use the variable `cases`.
 
 ```{r}
 who1 <- who %>% 
@@ -38,12 +40,7 @@ who1 <- who %>%
 who1
 ```
 
-We can get some hint of the structure of the values in the new `key` column by counting them:
-
-```{r}
-who1 %>% 
-  count(key)
-```
+Right now we are stuck because we have no clue about what to do with the key column. Although we could actually do things with this database, we will not be able to extract some meaning from it unless we find some information about this entries. This is a very important step because most of the time it is required a dictionary that tells us what does the database mean. A huge majority of the databases found in datos.gob.mx has weird data that can not be parsed. We frequently need to find a file which tells us the meaning of the columns or the data in them, and this add difficulty to the extracting task.
 
 You might be able to parse this out by yourself with a little thought and some experimentation, but luckily we have the data dictionary handy. It tells us:
 
@@ -74,7 +71,7 @@ You might be able to parse this out by yourself with a little thought and some e
     * `5564` = 55 -- 64 years old
     * `65` = 65 or older
 
-We need to make a minor fix to the format of the column names: unfortunately the names are slightly inconsistent because instead of `new_rel` we have `newrel` (it's hard to spot this here but if you don't fix it we'll get errors in subsequent steps). You'll learn about `str_replace()` in [strings], but the basic idea is pretty simple: replace the characters "newrel" with "new_rel". This makes all variable names consistent.
+We need to make a minor fix to the format of the column names: unfortunately the names are slightly inconsistent because instead of `new_rel` we have `newrel` (it's hard to spot this here but if you don't fix it we'll get errors in subsequent steps). 
 
 ```{r}
 who2 <- who1 %>% 
@@ -107,15 +104,62 @@ who5 <- who4 %>%
 who5
 ```
 
-The `who` dataset is now tidy!
+This dataset is finally tidy. With this example we were not trying to show the whole details of the tidying process (for which you would be better reading the original source of this material) rather than showing that it is very difficult to actually tidy a dataset. In this case, it requires knowledge about the R language, the tidyverse package and the concept of tidy data. 
 
-I've shown you the code a piece at a time, assigning each interim result to a new variable. This typically isn't how you'd work interactively. Instead, you'd gradually build up a complex pipe:
+This makes it impossible for a non-expert to analyse a raw database, and if the purpose of the open data is that anyone can look into the data and gain information about it, then we have a serious problem. The data found in datos.gob.mx is no exception, and the lack of complete information and organization in the portal does not help to ease this problem.
 
-```{r, results = "hide"}
-who %>%
-  gather(code, value, new_sp_m014:newrel_f65, na.rm = TRUE) %>% 
-  mutate(code = stringr::str_replace(code, "newrel", "new_rel")) %>%
-  separate(code, c("new", "var", "sexage")) %>% 
-  select(-new, -iso2, -iso3) %>% 
-  separate(sexage, c("sex", "age"), sep = 1)
+## The PROSPERA database from datos.gob.mx
+
+This database stores the number of users in each state of Mexico of the PROSPERA social program. The original database can be found in <https://www.prospera.gob.mx/php/Datos%20Abiertos/2_cobertura_atencion_familias/2016/familias_20164.txt>.
+
+Since we are trying to illustrate the steps of importing and extraction, we followed the steps described in the extraction chapter to actually download the file.
+
+### Extraction 
+
+1. We start in the main page of the portal.
+
+`r knitr::include_graphics("screenshots/extraction1.png", dpi = NA)`
+
+2. We type "prospera" in the search bar.
+
+`r knitr::include_graphics("screenshots/extraction2.png", dpi = NA)`
+
+3. We scroll down to find the desired data.
+
+`r knitr::include_graphics("screenshots/extraction3.png", dpi = NA)`
+
+4. We click on the entry title.
+
+`r knitr::include_graphics("screenshots/extraction4.png", dpi = NA)`
+
+5. We click on the title of the first database in this dataset.
+
+`r knitr::include_graphics("screenshots/extraction5.png", dpi = NA)`
+
+6. We download the file from the url and preview it.
+
+`r knitr::include_graphics("screenshots/extraction6.png", dpi = NA)`
+
+`r knitr::include_graphics("screenshots/extraction7.png", dpi = NA)`
+
+We can see that it actually has the structure of a .csv file and it uses the character "|" as separator. We can also see that it does have special characters.
+
+### Importing
+
+```{r }
+read_delim("databases/familias_20164.txt", delim = "|")
 ```
+
+Since we have already identified that the file has the .csv structure, the next step is to have the right encoding.
+
+```{r}
+guess_encoding("databases/familias_20164.txt")
+```
+
+Now we try to import the file again with the right encoding.
+
+```{r }
+read_delim("databases/familias_20164.txt", delim = "|", locale = locale(encoding = "ISO-8859-1"))
+```
+
+As we can see, this database is actually very simple and is already tidy. We are very lucky that this database has no column problems or any other issues. This is not a generic case but this examples serves us well to illustrate the usual steps to begin working with a database.

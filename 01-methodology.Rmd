@@ -2,6 +2,8 @@
 
 In this chapter we present the methodology that we used to work with the data. We will explain each step individually and as part of the many subprocesses that are required to understand the databases present in datos.gob.mx.
 
+This methodology was taken out from the book "R for Data Science" from Hadley Wickham and Garret Grolemund, which can be found here <http://r4ds.had.co.nz/index.html>. In this capter, the original was taken almost unmodified.
+
 ## General Model of the Methodology
 
 The purpose of this methodology is to turn the raw databases found in the portal into understanding, insight and knowledge. To accomplish this, there is a need for using a computing system, for we will be using the statistical software R, which is free and open source.  
