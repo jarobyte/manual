@@ -33,7 +33,7 @@ After listing all entries related to the query in the search bar, you have to ta
 
 To avoid confusion, the titles are in bold and in a slightly bigger font size than the normal text. We present a screenshot to help in the identification.
 
-`r knitr::include_graphics("screenshots/titles.png")`
+`r knitr::include_graphics("screenshots/titles.png", dpi = NA)`
 
 ## Identifying the source of the data
 
@@ -47,11 +47,11 @@ This information is displayed at the left of the website after clicking in the e
 
 After identifying the source of the data, you can finally download the database. We present a screenshot to point out the database link.
 
-`r knitr::include_graphics("screenshots/database.png")`
+`r knitr::include_graphics("screenshots/database.png", dpi = NA)`
 
 After accessing the website of the database, you can click on the link named "url" to preview the database in your web browser. You can save the file to disk directly from your browser.
 
-`r knitr::include_graphics("screenshots/database1.png")`
+`r knitr::include_graphics("screenshots/database1.png", dpi = NA)`
 
 ## Checking the data
 
