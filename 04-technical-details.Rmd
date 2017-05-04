@@ -1,0 +1,23 @@
+# Technical Details
+
+In this chapter we will try to make a brief summary of the problems that may appear and that are related to the way in which the database is stored in the computer. These steps are implicitly included in the importing process but we consider that it is important to point them out and suggest some solutions for this problems.
+
+## Formats
+
+A file format is a standard way that information is encoded for storage in a computer file. It specifies how bits are used to encode information in a digital storage medium. File formats may be either proprietary or free and may be either unpublished or open.
+
+There are several formats in which a database can be stored, and also there are several applications to produce this databases. One of the main challenges of making use of the databases present in the portal is the wide variety of formats in which the databases are. 
+
+This variety is the main obstacle for the real usage of the information in datos.gob.mx, because it is not possible to write programs that can read inherently different files. We have to point out that often the format of a database is not what it seems. This is one of the main reasons that we recommend checking the database in the extraction process. 
+
+As an example of this discrepancy between the format shown in the name of the file and the real structure of the database, we present the following screenshots:
+
+`r knitr::include_graphics("screenshots/format.png", dpi = NA)`
+
+In this case, it would seem that this database is a simple plain text file, which is not a common choice for storing a dataset. A more careful look at the file (with the web browser preview) shows that actually it is a csv (short for comma separated values) file, which is an easy and effective format for storing information.
+
+`r knitr::include_graphics("screenshots/format1.png", dpi = NA)`
+
+## Encodings
+
+## Spanish special characters
