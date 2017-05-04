@@ -20,4 +20,20 @@ In this case, it would seem that this database is a simple plain text file, whic
 
 ## Encodings
 
+There is another important issue around the way in which a file is stored in the hard drive of the computer. The reason for this issue is that not all languages in the world use the same characters, so it is quite common that there exist letters or symbols that a computer from a different part of the world is not going to understand. 
+
+The solution to this problem is the implementation of encodings, which is the way in which a repertoire of characters is represented in the computer memory. Although this is a good way to standardize the communication between computers, it is not a complete solution, because most of the time we are not concerned about the encoding we are using, and suddenly, when we share a file with someone from another country, we find that there exist many problems to effectively communicate and sometimes, it is not possible to communicate at all. 
+
+The tidyverse package implements a special set of helper functions to help in the identification of the encoding of a file in the middle of the importing process. The most important of this functions is called "guess_encoding()" and can be found in the "readr" package. This function tries to find a match between the characters found in a file and a database of encodings it has, and gives us a confidence parameter that measures the discrepancies.
+
+This "guess_encoding" function is our main tool to resolve the encoding problems we often find in the databases. It is always useful to start working with the right encoding in order to find what our database is really about.
+
 ## Spanish special characters
+
+Closely related to the previous section is the subject of the symbols that the spanish language has and english has not. Since R is written in english and tries to parse the data in english terms, it is not rare that we find that we do not understand what has been written in the database fields. 
+
+If you are not confortable working with these special characters or you have not found the right enconding to represent them, we suggest to replace them with characters that you understand but that tell you that in that word there used to be something special.
+
+For example, replace "á" with "A" so you take the word "está" and turn it into "estA", where obviously there is no reason for a capital A to be in the middle of a word. Now you can parse the word (or row, or database) correctly but you can remember that there used to be an "á". 
+
+As a note, it is helpful to have an automated program that does this task for you, and usually it is not difficult to write such a program.
