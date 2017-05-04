@@ -12,6 +12,6 @@ github-repo: rstudio/bookdown-demo
 description: "This manual describes the process of cleaning open government databases"
 ---
 
-# Overview
+# Abstract
 
 This manual describes through a methodology the activities of extraction, cleaning and integration of data bases prior to the processing and analysis phase. In addition to this manual and using a programming environment, automated scripts are developed for cleaning, integrating and transforming data.
