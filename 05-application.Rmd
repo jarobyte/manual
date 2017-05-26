@@ -1,6 +1,6 @@
 # Applications
 
-To finalize this manual, we present two guided examples that we hope will help in the process of making use of the information present in datos.gob.mx. The first is to illustrate the process of the tidying of the data, and the second is to illustrate the process of extraction and importing a database directly from datos.gob.mx. 
+To finalize this manual, we present two guided examples and the script that we developed hoping that this will help in the process of making use of the information present in datos.gob.mx. The first is to illustrate the process of the tidying of the data, and the second is to illustrate the process of extraction and importing a database directly from datos.gob.mx. 
 
 ## Tuberculosis Database from World Health Organization
 
@@ -163,3 +163,82 @@ read_delim("databases/familias_20164.txt", delim = "|", locale = locale(encoding
 ```
 
 As we can see, this database is actually very simple and is already tidy. We are very lucky that this database has no column problems or any other issues. This is not a generic case but this examples serves us well to illustrate the usual steps to begin working with a database.
+
+## Script
+
+In this section we present the scripts writeen in R that we are using to clean the data.
+
+```{r}
+# This script creates an interface to handle the common failures present in the databases that are related to the spanish special characters.
+# The first column is the problematic pattern and the second is the replacement (we are trying to replace the problem in such a way that no system has problems importing it)
+# To delimit the columns "," is used.
+# The entries are ordered alphabetically.
+# It is advised to run the whole script to verify that everything worked correctly.
+
+# First we import the library needed
+library(tidyverse)
+
+# Now we create a vertical table in whose rows we first put the problematic pattern and next the replacement
+erroresTabla <- tribble(
+  ~Problema, ~Reemplazo, 
+  "\"Pe\"", "Pe", 
+  "\"Y\"", "Y", 
+  "\"Ye\"", "Ye"
+)
+
+# Wow we write this table in a csv file to make use of it later
+write_csv(erroresTabla, "scripts/errores.csv")
+
+# Finally, we create a named vector so we can call this script from other scripts
+errores <- erroresTabla$Reemplazo
+names(errores) <- erroresTabla$Problema
+```
+
+```{r}
+# First we import the libraries that we are going to use and call the previous script to make use of the "errores" vector
+library(stringr)
+library(tidyverse)
+source("scripts/errores.R")
+
+# Now we create a function that cleans one database at a time
+importarProspera <- function(rutaDelArchivo, cabecera, errores){
+  # The first step to clean the database is to read ir as a string with the right encoding 
+  cadena <- read_file(rutaDelArchivo, locale = locale("es", encoding = "ISO-8859-1")) %>% 
+    # Next we call the "errores" vector from the previous script and correct all the pattern that match with the entries of "errores"
+    str_replace_all(pattern = errores)
+  # The final step  is to read the corrected string as a table with the right heading
+  importado <- read_csv(cadena, col_names = cabecera)
+}
+
+# We specify the path and headings of the tables that we want to import
+prefijo <- "familias_2014"
+numeroDeArchivos <- 6
+archivos <- str_c("archivos/", prefijo, 1:numeroDeArchivos, ".txt")
+archivos
+cabecera <- c("claveEstado", 
+              "estado", 
+              "claveMunicipio", 
+              "municipio", 
+              "claveLocalidad", 
+              "localidad", 
+              "claveINEGI", 
+              "tipoDeLocalidad", 
+              "familiasProspera", 
+              "familiasPal", 
+              "familiasTotales")
+# We create a "list" in which we are going to store the databases
+familias2014EnBruto <- vector("list", numeroDeArchivos)
+# This line adapts the headings because some databases have less columns
+columnas <- list(cabecera, cabecera[c(-7, -8)])
+# Now we apply the function created previously to each of the databases in the list 
+for(i in seq_along(familias2014EnBruto)){
+  if(i %in% 1:4){
+    familias2014EnBruto[[i]] <- importarProspera(archivos[i], columnas[[1]], errores)
+  }else{
+    familias2014EnBruto[[i]] <- importarProspera(archivos[i], columnas[[2]], errores)
+  }
+}
+# Finally we correct the forth database because it has a different column order
+familias2014EnBruto[[4]] <- rename(familias2014EnBruto[[4]], claveINEGI = tipoDeLocalidad, tipoDeLocalidad = claveINEGI)
+```
+
