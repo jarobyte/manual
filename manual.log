@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.5.25)  25 MAY 2017 19:20
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.5.25)  25 MAY 2017 19:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1026,14 +1026,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [31]
 File: screenshots/extraction7.png Graphic file (type QTm)
 <use  "screenshots/extraction7.png" > [32] [33] [34]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1148.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1151.
 [35
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1148.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1151.
 (./manual.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1148.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1148.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1151.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1151.
  ) 
 Here is how much of TeX's memory you used:
  25312 strings out of 495579

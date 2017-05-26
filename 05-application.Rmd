@@ -164,11 +164,11 @@ read_delim("databases/familias_20164.txt", delim = "|", locale = locale(encoding
 
 As we can see, this database is actually very simple and is already tidy. We are very lucky that this database has no column problems or any other issues. This is not a generic case but this examples serves us well to illustrate the usual steps to begin working with a database.
 
-## Script
+## Scripts
 
 In this section we present the scripts writeen in R that we are using to clean the data.
 
-```{r}
+```{r, eval=FALSE, include=FALSE}
 # This script creates an interface to handle the common failures present in the databases that are related to the spanish special characters.
 # The first column is the problematic pattern and the second is the replacement (we are trying to replace the problem in such a way that no system has problems importing it)
 # To delimit the columns "," is used.
@@ -194,7 +194,7 @@ errores <- erroresTabla$Reemplazo
 names(errores) <- erroresTabla$Problema
 ```
 
-```{r}
+```{r, eval=FALSE, include=FALSE}
 # First we import the libraries that we are going to use and call the previous script to make use of the "errores" vector
 library(stringr)
 library(tidyverse)
