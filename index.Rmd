@@ -14,5 +14,8 @@ description: "This manual describes the process of cleaning open government data
 
 # Abstract
 
-This manual describes through a methodology the activities of extraction, cleaning and integration of data bases prior to the processing and analysis phase. In addition to this manual and using a programming environment, automated scripts are developed for cleaning, integrating and transforming data. Esto es una prueba
+Making use of the open data of the mexican government is full of obstacles that are related to the presentation of the data. The main origin of this barriers is the source and way in which the data are published in the portal datos.gob.mx. The informatic systems that are used by the public administration produce raw data, in a variety of formats, in a variety of structures and with mistaken content. Because of this, it is a necessity to consider that in order to be able to make use of the diverse benefits obtained after using this free resources, a previous preparation of the data is needed.
 
+The policies and regulations on open data provide the ways in which the information is to be published. It is implied that this presentation agrees with the principles of purity, safety and non-manipulation of information. Even so, the knowledge required for the manipulation of the information is limited among the potencial users. As one of the purposes of this openness is the analysis with advanced techniques, it is necessary to transmit mechanisms and methods to ease the preparation and transformation of the data to a simpler form.
+
+This manual describes through a methodology the activities of extraction, cleaning and integration of data bases prior to the processing and analysis phase. In addition to this manual and using a programming environment, automated scripts are developed for cleaning, integrating and transforming data.
